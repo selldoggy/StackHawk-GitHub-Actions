@@ -1,6 +1,6 @@
 app:
   applicationId: 8d7bdad1-7595-4798-9227-89990fc758ad
-env: Development
-host: http://example.com
+  env: Development
+  host: http://example.com
 hawk:
   failureThreshold: high
