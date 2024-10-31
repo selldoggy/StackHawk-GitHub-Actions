@@ -1,0 +1,27 @@
+name: StackHawk Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  stackhawk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Start your service
+        run: cd lunch-and-learn && docker-compose up -d # Update this to match your service start command
+
+      - name: Run HawkScan
+        uses: stackhawk/hawkscan-action@v2
+        with:
+          apiKey: ${{ secrets.HAWK_API_KEY }}
+          codeScanningAlerts: true
+          githubToken: ${{ github.token }}
