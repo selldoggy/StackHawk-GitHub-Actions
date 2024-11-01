@@ -3,4 +3,4 @@ app:
   env: Development
   host: http://example.com
 hawk:
-  failureThreshold: high
+  failureThreshold: low
